@@ -140,7 +140,7 @@ const WHATSAPP = 'https://wa.me/573000000000';
     line-height: 1.1;
     max-width: 700px;
   }
-  .about-title em { color: var(--color-accent); font-style: italic; }
+  .about-title em { color: var(--color-accent); font-style: italic; -webkit-text-stroke: 1px white; paint-order: stroke fill; }
 
   /* SHARED SECTION */
   .about-section,
@@ -185,6 +185,8 @@ const WHATSAPP = 'https://wa.me/573000000000';
     font-family: var(--font-heading);
     font-size: 2.5rem;
     color: var(--color-accent);
+    -webkit-text-stroke: 1px white;
+    paint-order: stroke fill;
     opacity: 0.6;
     margin-bottom: 16px;
     line-height: 1;

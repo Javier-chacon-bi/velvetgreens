@@ -87,7 +87,7 @@ const { slug } = Astro.params;
     margin-bottom: 24px;
     transition: color 0.2s;
   }
-  .back-link:hover { color: var(--color-accent); }
+  .back-link:hover { color: var(--color-accent); -webkit-text-stroke: 1px white; paint-order: stroke fill; }
   .ing-title {
     font-size: clamp(2rem, 5vw, 3.5rem);
     color: var(--color-white);
