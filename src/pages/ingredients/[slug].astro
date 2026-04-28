@@ -3,6 +3,18 @@
 // Because we use output: 'static', this page is a client-rendered shell.
 // The actual data is fetched client-side via JS from the Cloudflare Worker.
 import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const API = import.meta.env.PUBLIC_API_BASE || 'https://api.velvetgreens.com';
+  try {
+    const res = await fetch(`${API}/api/ingredients`);
+    const ingredients = await res.json();
+    return (Array.isArray(ingredients) ? ingredients : []).map(ing => ({ params: { slug: ing.slug } }));
+  } catch {
+    return [];
+  }
+}
+
 const { slug } = Astro.params;
 ---
 <Base title="Ingredient" description="Learn about this premium botanical ingredient.">

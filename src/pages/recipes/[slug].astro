@@ -1,6 +1,17 @@
 ---
 // src/pages/recipes/[slug].astro
 import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const API = import.meta.env.PUBLIC_API_BASE || 'https://api.velvetgreens.com';
+  try {
+    const res = await fetch(`${API}/api/recipes`);
+    const recipes = await res.json();
+    return (Array.isArray(recipes) ? recipes : []).map(r => ({ params: { slug: r.slug } }));
+  } catch {
+    return [];
+  }
+}
 ---
 <Base title="Recipe" description="A functional recipe from Velvet Greens.">
 
