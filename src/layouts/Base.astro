@@ -1,0 +1,218 @@
+---
+// src/layouts/Base.astro
+const { title = 'Velvet Greens', description = 'Premium natural ingredients designed for modern wellness.' } = Astro.props;
+const WHATSAPP = 'https://wa.me/573000000000'; // ← replace with real number
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title} — Velvet Greens</title>
+  <link rel="icon" type="image/png" href="/media/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav-header" id="nav">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo">
+        <img
+          src="https://raw.githubusercontent.com/JTunjo/asset_hosting/refs/heads/main/Velvet_color.png"
+          alt="Velvet Greens"
+          height="36"
+        />
+      </a>
+      <nav class="nav-links">
+        <a href="/ingredients">Ingredients</a>
+        <a href="/recipes">Recipes</a>
+        <a href="/about">About</a>
+        <a href={WHATSAPP} target="_blank" rel="noopener" class="btn btn-primary nav-cta">Contact</a>
+      </nav>
+      <button class="nav-burger" id="burger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <!-- Mobile menu -->
+    <div class="nav-mobile" id="mobile-menu">
+      <a href="/ingredients">Ingredients</a>
+      <a href="/recipes">Recipes</a>
+      <a href="/about">About</a>
+      <a href={WHATSAPP} target="_blank" rel="noopener" class="btn btn-primary">Contact via WhatsApp</a>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img
+          src="https://raw.githubusercontent.com/JTunjo/asset_hosting/refs/heads/main/velvetgreens-logo.png"
+          alt="Velvet Greens"
+          height="32"
+        />
+        <p>Nature, Refined.</p>
+      </div>
+      <nav class="footer-nav">
+        <a href="/ingredients">Ingredients</a>
+        <a href="/recipes">Recipes</a>
+        <a href="/about">About</a>
+      </nav>
+      <div class="footer-contact">
+        <a href={WHATSAPP} target="_blank" rel="noopener" class="footer-wa">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; {new Date().getFullYear()} Velvet Greens. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp float -->
+  <a href={WHATSAPP} target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+</body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+
+  /* NAV */
+  .nav-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247,247,245,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    transition: box-shadow 0.3s;
+  }
+  .nav-header.scrolled { box-shadow: var(--shadow-md); }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+  }
+  .nav-logo img { height: 36px; width: auto; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+  }
+  .nav-links a:not(.btn) {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--color-text);
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+  .nav-links a:not(.btn):hover { color: var(--color-secondary); }
+  .nav-cta { padding: 10px 24px; font-size: 0.8rem; }
+  .nav-burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .nav-burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .nav-mobile {
+    display: none;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    border-top: 1px solid var(--color-border);
+  }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a:not(.btn) { font-size: 1rem; font-weight: 400; }
+
+  /* FOOTER */
+  .footer {
+    background: var(--color-primary);
+    color: rgba(255,255,255,0.75);
+    padding-top: 64px;
+  }
+  .footer-inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+    gap: 48px;
+    padding-bottom: 48px;
+  }
+  .footer-brand p {
+    font-size: 0.85rem;
+    margin-top: 12px;
+    font-style: italic;
+    opacity: 0.6;
+  }
+  .footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  .footer-nav a {
+    font-size: 0.875rem;
+    transition: color 0.2s;
+    color: rgba(255,255,255,0.7);
+  }
+  .footer-nav a:hover { color: var(--color-accent); }
+  .footer-contact { display: flex; justify-content: flex-end; }
+  .footer-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.875rem;
+    color: #25D366;
+    transition: opacity 0.2s;
+  }
+  .footer-wa:hover { opacity: 0.8; }
+  .footer-wa svg { width: 20px; height: 20px; fill: #25D366; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 20px 0;
+  }
+  .footer-bottom p { font-size: 0.8rem; opacity: 0.4; text-align: center; }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .nav-burger { display: flex; }
+    .footer-inner { grid-template-columns: 1fr; text-align: center; }
+    .footer-contact { justify-content: center; }
+  }
+</style>
+
+<script>
+  // Scroll shadow on nav
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav?.classList.toggle('scrolled', window.scrollY > 10);
+  });
+  // Mobile burger
+  document.getElementById('burger')?.addEventListener('click', () => {
+    document.getElementById('mobile-menu')?.classList.toggle('open');
+  });
+</script>

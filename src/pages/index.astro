@@ -1,0 +1,397 @@
+---
+// src/pages/index.astro
+import Base from '../layouts/Base.astro';
+const WHATSAPP = 'https://wa.me/573000000000';
+---
+<Base title="Home" description="Premium natural ingredients designed for modern wellness.">
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-bg-pattern"></div>
+    <div class="container hero-content">
+      <p class="hero-label fade-up fade-up-1">Premium Botanical Ingredients</p>
+      <h1 class="hero-title fade-up fade-up-2">Nature,<br/><em>Refined.</em></h1>
+      <p class="hero-subtitle fade-up fade-up-3">
+        Premium natural ingredients designed for modern wellness.
+      </p>
+      <div class="hero-ctas fade-up fade-up-4">
+        <a href="/ingredients" class="btn btn-primary">Explore Ingredients</a>
+        <a href="/recipes" class="btn btn-outline">View Recipes</a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- ── FEATURED INGREDIENTS ──────────────────────────────── -->
+  <section class="section-featured">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">From our collection</p>
+        <h2 class="section-title">Featured Ingredients</h2>
+        <div class="divider"></div>
+      </div>
+      <!-- Loaded client-side via API -->
+      <div class="ingredients-grid" id="featured-grid">
+        <!-- Skeletons shown while loading -->
+        <div class="card ingredient-card skeleton-card">
+          <div class="skeleton" style="height:220px"></div>
+          <div class="card-body">
+            <div class="skeleton" style="height:20px;width:60%;margin-bottom:8px"></div>
+            <div class="skeleton" style="height:14px;width:90%;margin-bottom:6px"></div>
+            <div class="skeleton" style="height:14px;width:70%"></div>
+          </div>
+        </div>
+        <div class="card ingredient-card skeleton-card">
+          <div class="skeleton" style="height:220px"></div>
+          <div class="card-body">
+            <div class="skeleton" style="height:20px;width:55%;margin-bottom:8px"></div>
+            <div class="skeleton" style="height:14px;width:85%;margin-bottom:6px"></div>
+            <div class="skeleton" style="height:14px;width:65%"></div>
+          </div>
+        </div>
+        <div class="card ingredient-card skeleton-card">
+          <div class="skeleton" style="height:220px"></div>
+          <div class="card-body">
+            <div class="skeleton" style="height:20px;width:65%;margin-bottom:8px"></div>
+            <div class="skeleton" style="height:14px;width:80%;margin-bottom:6px"></div>
+            <div class="skeleton" style="height:14px;width:60%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="section-cta">
+        <a href="/ingredients" class="btn btn-outline">View All Ingredients</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PHILOSOPHY ─────────────────────────────────────────── -->
+  <section class="section-philosophy">
+    <div class="container philosophy-inner">
+      <div class="philosophy-visual">
+        <div class="philosophy-img-wrap">
+          <img src="/media/philosophy.jpg" alt="Velvet Greens philosophy" loading="lazy" />
+          <div class="philosophy-badge">
+            <span>Est.</span>
+            <strong>2024</strong>
+          </div>
+        </div>
+      </div>
+      <div class="philosophy-text">
+        <p class="section-label">Our Philosophy</p>
+        <h2 class="section-title">Rooted in Nature.<br/><em>Designed for Impact.</em></h2>
+        <div class="divider"></div>
+        <p>
+          Velvet Greens sources high-quality botanical ingredients and transforms them
+          into accessible, functional products. We prioritize purity, traceability,
+          and functional value — connecting ancient wisdom with modern nutrition science.
+        </p>
+        <a href="/about" class="btn btn-primary" style="margin-top:32px">Learn Our Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RECIPES PREVIEW ────────────────────────────────────── -->
+  <section class="section-recipes">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-label">Inspiration</p>
+        <h2 class="section-title">Recipes & Uses</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="recipes-grid" id="recipes-preview">
+        <!-- Skeleton -->
+        <div class="card recipe-card skeleton-card">
+          <div class="skeleton" style="height:200px"></div>
+          <div class="card-body">
+            <div class="skeleton" style="height:18px;width:70%;margin-bottom:8px"></div>
+            <div class="skeleton" style="height:13px;width:90%"></div>
+          </div>
+        </div>
+        <div class="card recipe-card skeleton-card">
+          <div class="skeleton" style="height:200px"></div>
+          <div class="card-body">
+            <div class="skeleton" style="height:18px;width:60%;margin-bottom:8px"></div>
+            <div class="skeleton" style="height:13px;width:85%"></div>
+          </div>
+        </div>
+        <div class="card recipe-card skeleton-card">
+          <div class="skeleton" style="height:200px"></div>
+          <div class="card-body">
+            <div class="skeleton" style="height:18px;width:75%;margin-bottom:8px"></div>
+            <div class="skeleton" style="height:13px;width:80%"></div>
+          </div>
+        </div>
+      </div>
+      <div class="section-cta">
+        <a href="/recipes" class="btn btn-outline">Explore All Recipes</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHATSAPP CTA ───────────────────────────────────────── -->
+  <section class="section-wa-cta">
+    <div class="container wa-cta-inner">
+      <div>
+        <h2>Have questions?</h2>
+        <p>Connect with us directly — we're happy to help.</p>
+      </div>
+      <a href={WHATSAPP} target="_blank" rel="noopener" class="btn btn-accent wa-btn">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--color-primary);
+  }
+  .hero-bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 70% 30%, rgba(106,143,123,0.18) 0%, transparent 60%),
+      radial-gradient(circle at 20% 80%, rgba(212,163,115,0.1) 0%, transparent 50%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+    padding-block: 120px;
+  }
+  .hero-label {
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .hero-title {
+    font-size: clamp(3rem, 7vw, 6rem);
+    color: var(--color-white);
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+  .hero-title em { color: var(--color-accent); font-style: italic; }
+  .hero-subtitle {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 40px;
+    max-width: 480px;
+    line-height: 1.6;
+  }
+  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-ctas .btn-outline {
+    color: var(--color-white);
+    border-color: rgba(255,255,255,0.4);
+  }
+  .hero-scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .hero-scroll-hint span {
+    display: block;
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+
+  /* FEATURED */
+  .section-featured { padding: var(--section-py) 0; }
+  .section-header { margin-bottom: 48px; }
+  .ingredients-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .ingredient-card .card-img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  .ingredient-card .card-body { padding: 24px; }
+  .ingredient-card .card-body h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--color-primary);
+  }
+  .ingredient-card .card-body p {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    margin-bottom: 16px;
+  }
+  .ingredient-card .card-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-secondary);
+    transition: color 0.2s;
+  }
+  .ingredient-card .card-link:hover { color: var(--color-accent); }
+  .section-cta { margin-top: 48px; text-align: center; }
+
+  /* PHILOSOPHY */
+  .section-philosophy {
+    padding: var(--section-py) 0;
+    background: var(--color-white);
+  }
+  .philosophy-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .philosophy-img-wrap {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    background: var(--color-border);
+  }
+  .philosophy-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .philosophy-badge {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    background: var(--color-accent);
+    color: var(--color-primary);
+    padding: 16px 20px;
+    border-radius: var(--radius-md);
+    text-align: center;
+    line-height: 1.2;
+  }
+  .philosophy-badge span { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; display: block; }
+  .philosophy-badge strong { font-family: var(--font-heading); font-size: 1.6rem; }
+  .philosophy-text p { color: var(--color-muted); line-height: 1.8; }
+
+  /* RECIPES */
+  .section-recipes { padding: var(--section-py) 0; }
+  .recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .recipe-card .card-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  .recipe-card .card-body { padding: 20px; }
+  .recipe-card .card-body h3 { font-size: 1.05rem; margin-bottom: 6px; }
+  .recipe-card .card-body p { font-size: 0.85rem; color: var(--color-muted); }
+
+  /* WHATSAPP CTA */
+  .section-wa-cta {
+    background: var(--color-primary);
+    padding: 72px 0;
+  }
+  .wa-cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .wa-cta-inner h2 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: var(--color-white);
+    margin-bottom: 8px;
+  }
+  .wa-cta-inner p { color: rgba(255,255,255,0.6); font-size: 1rem; }
+  .wa-btn { gap: 10px; }
+
+  @media (max-width: 960px) {
+    .ingredients-grid,
+    .recipes-grid { grid-template-columns: 1fr 1fr; }
+    .philosophy-inner { grid-template-columns: 1fr; gap: 40px; }
+    .philosophy-img-wrap { aspect-ratio: 16/9; }
+  }
+  @media (max-width: 600px) {
+    .ingredients-grid,
+    .recipes-grid { grid-template-columns: 1fr; }
+    .wa-cta-inner { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+
+<script>
+  const API = import.meta.env.PUBLIC_API_BASE || 'https://api.velvetgreens.com';
+
+  // ── Featured Ingredients ──────────────────────────
+  async function loadFeatured() {
+    try {
+      const res = await fetch(`${API}/api/ingredients?featured=true`);
+      const data = await res.json();
+      const grid = document.getElementById('featured-grid');
+      if (!grid) return;
+      grid.innerHTML = data.slice(0, 3).map(ing => `
+        <a href="/ingredients/${ing.slug}" class="card ingredient-card" style="display:block;color:inherit;">
+          <img
+            class="card-img"
+            src="${ing.image_url || '/media/ingredient_1.jpg'}"
+            alt="${ing.name}"
+            loading="lazy"
+          />
+          <div class="card-body">
+            <h3>${ing.name}</h3>
+            <p>${Array.isArray(ing.benefits) ? ing.benefits[0] : ing.description}</p>
+            <span class="card-link">Learn More →</span>
+          </div>
+        </a>
+      `).join('');
+    } catch (e) {
+      console.error('Failed to load featured ingredients', e);
+    }
+  }
+
+  // ── Recipes preview ───────────────────────────────
+  async function loadRecipes() {
+    try {
+      const res = await fetch(`${API}/api/recipes`);
+      const data = await res.json();
+      const grid = document.getElementById('recipes-preview');
+      if (!grid) return;
+      grid.innerHTML = data.slice(0, 3).map(r => `
+        <a href="/recipes/${r.slug}" class="card recipe-card" style="display:block;color:inherit;">
+          <img
+            class="card-img"
+            src="${r.image_url || '/media/recipe_1.png'}"
+            alt="${r.name}"
+            loading="lazy"
+          />
+          <div class="card-body">
+            <h3>${r.name}</h3>
+            <p>${r.description}</p>
+          </div>
+        </a>
+      `).join('');
+    } catch (e) {
+      console.error('Failed to load recipes', e);
+    }
+  }
+
+  loadFeatured();
+  loadRecipes();
+</script>
