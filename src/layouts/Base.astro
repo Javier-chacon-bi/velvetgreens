@@ -23,8 +23,9 @@ const WHATSAPP = 'https://wa.me/573000000000'; // ← replace with real number
         <img
           src="https://raw.githubusercontent.com/JTunjo/asset_hosting/refs/heads/main/Velvet_color.png"
           alt="Velvet Greens"
-          height="36"
+          height="48"
         />
+        <span class="nav-logo-text">Velvet Greens</span>
       </a>
       <nav class="nav-links">
         <a href="/ingredients">Ingredients</a>
@@ -53,11 +54,15 @@ const WHATSAPP = 'https://wa.me/573000000000'; // ← replace with real number
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <img
-          src="https://raw.githubusercontent.com/JTunjo/asset_hosting/refs/heads/main/velvetgreens-logo.png"
-          alt="Velvet Greens"
-          height="32"
-        />
+        <a href="/" class="footer-logo">
+          <img
+            src="https://raw.githubusercontent.com/JTunjo/asset_hosting/refs/heads/main/velvetgreens-logo.png"
+            alt="Velvet Greens"
+            height="44"
+            class="footer-logo-img"
+          />
+          <span class="footer-logo-text">Velvet Greens</span>
+        </a>
         <p>Nature, Refined.</p>
       </div>
       <nav class="footer-nav">
@@ -107,7 +112,20 @@ const WHATSAPP = 'https://wa.me/573000000000'; // ← replace with real number
     justify-content: space-between;
     height: 68px;
   }
-  .nav-logo img { height: 36px; width: auto; }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .nav-logo img { height: 48px; width: auto; }
+  .nav-logo-text {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: var(--color-primary);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
   .nav-links {
     display: flex;
     align-items: center;
@@ -162,9 +180,27 @@ const WHATSAPP = 'https://wa.me/573000000000'; // ← replace with real number
     gap: 48px;
     padding-bottom: 48px;
   }
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .footer-logo-img {
+    height: 44px;
+    width: auto;
+  }
+  .footer-logo-text {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
   .footer-brand p {
     font-size: 0.85rem;
-    margin-top: 12px;
+    margin-top: 4px;
     font-style: italic;
     opacity: 0.6;
   }
