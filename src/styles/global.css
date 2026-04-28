@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500&display=swap');
 
 :root {
-  --color-primary:    #0B1D18;
-  --color-secondary:  #6A8F7B;
-  --color-accent:     #D4A373;
+  --color-primary:    #275C2B;
+  --color-secondary:  #4A8A50;
+  --color-accent:     #C8127E;
   --color-bg:         #F7F7F5;
   --color-text:       #1A1A1A;
   --color-white:      #FFFFFF;
-  --color-muted:      #8A9E94;
-  --color-border:     #E2E8E4;
+  --color-muted:      #6B8F70;
+  --color-border:     #D6E6D8;
   --color-card-bg:    #FFFFFF;
 
-  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-heading: 'Montserrat', system-ui, sans-serif;
   --font-body:    'DM Sans', system-ui, sans-serif;
 
   --radius-sm:  8px;
@@ -19,9 +19,9 @@
   --radius-lg:  20px;
   --radius-pill: 999px;
 
-  --shadow-sm:  0 1px 4px rgba(11,29,24,0.06);
-  --shadow-md:  0 4px 20px rgba(11,29,24,0.09);
-  --shadow-lg:  0 12px 40px rgba(11,29,24,0.13);
+  --shadow-sm:  0 1px 4px rgba(39,92,43,0.08);
+  --shadow-md:  0 4px 20px rgba(39,92,43,0.12);
+  --shadow-lg:  0 12px 40px rgba(39,92,43,0.16);
 
   --max-w: 1200px;
   --section-py: 96px;
@@ -49,8 +49,8 @@ a { color: inherit; text-decoration: none; }
 
 h1, h2, h3, h4 {
   font-family: var(--font-heading);
-  line-height: 1.2;
-  font-weight: 500;
+  line-height: 1.15;
+  font-weight: 800;
   letter-spacing: -0.01em;
 }
 
@@ -71,8 +71,9 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-pill);
   font-family: var(--font-body);
   font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   cursor: pointer;
   transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease;
   border: none;
@@ -92,7 +93,7 @@ h1, h2, h3, h4 {
 }
 .btn-accent {
   background: var(--color-accent);
-  color: var(--color-primary);
+  color: var(--color-white);
 }
 
 /* ── Cards ──────────────────────────────────── */
@@ -119,6 +120,8 @@ h1, h2, h3, h4 {
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);
   color: var(--color-primary);
   margin-bottom: 16px;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 .section-subtitle {
   font-size: 1.05rem;
@@ -129,7 +132,7 @@ h1, h2, h3, h4 {
 /* ── Divider ────────────────────────────────── */
 .divider {
   width: 48px;
-  height: 2px;
+  height: 3px;
   background: var(--color-accent);
   margin-bottom: 24px;
 }
